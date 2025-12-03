@@ -17,7 +17,7 @@ def index():
         
         if my_input == MAGIC_WORD:
             result = "<b style='color:green'> Cool! </b>"
-        else
+        else:
             result = "<span style='color:red'> Try the magic word 'fred'</span>"
         if my_input02 == fumble:
             goober = "<b style='color:red'>Im Going to Kill you </b>"
