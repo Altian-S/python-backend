@@ -1,9 +1,11 @@
+from flask import Flask, request
+
 #  RENDER Settings start command needs      gunicorn app:app
 
 # The Flask application object must be available at the top level
 app = Flask(__name__) 
 MAGIC_WORD = 'fred'
-fumble = '67'
+FUMBLE = '67'
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # Default message when first loading the page (GET request)
@@ -12,14 +14,14 @@ def index():
     # Logic for handling form submission (POST request)
     if request.method == 'POST':
         # Get the input text from the form data
-        my_input = request.form.get('myText01')
-        my_input02 = request.form.get('myText02')
+        my_input = request.form.get('myText01').lower()
+        my_input02 = request.form.get('myText02').lower()
         
         if my_input == MAGIC_WORD:
             result = "<b style='color:green'> Cool! </b>"
         else:
             result = "<span style='color:red'> Try the magic word 'fred'</span>"
-        if my_input02 == fumble:
+        if my_input02 == FUMBLE:
             goober = "<b style='color:red'>Im Going to Kill you </b>"
 
     # HTML template with the dynamic result
